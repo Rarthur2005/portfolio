@@ -6,3 +6,15 @@ function slideIn(){
     }
   }
 }
+var extended = false;
+function extendNav(){
+  var items = document.getElementsByClassName("rightlink");
+  for(var i = 0; i < items.length; i++){
+    if(extended){
+      items[i].style.display ="none";
+    }else{
+      items[i].style.display = "block";
+    }
+  }
+  extended = !extended;
+}

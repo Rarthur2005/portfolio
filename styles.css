@@ -13,15 +13,16 @@ body,html{
 nav{
   background: #2D3142;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  z-index: 10;
-  position: relative;
-  
+  z-index: 1;
+  position: sticky;
 }
 ul{
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   width: 100vw;
   
@@ -30,29 +31,33 @@ li{
   color: #EF8354;
 }
 #triangle{
-  width: 3.5em;
-  margin-left: 1em;
-  height: 3.5em;
-  margin-bottom: 0.5em;
+  margin-left: .2em;
+  height: 3.8rem;
+  width: 3.8rem;
   background: #EF8354;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 #title{
   font-weight: bold;
   font-size: 3.8rem;
+  display: flex;
+  justify-content: center;
   margin: 0.3em .05em;
 }
-
-#contact{
-  margin-right: 3em;
-}
-#projects{
-  margin-left: auto;
+#hamburger{
+  position: absolute;
+  right: 0;
+  top: 1.9rem;
+  width: 70px;
+  height: 3.8rem;
+  fill: #EF8354;
 }
 .rightlink{
   font-size: 2.4rem;
-  margin: 0 1em;
+  margin: 1rem 1em;
   position: relative;
+  transition: all 0.3s ease-in-out;
+  display: none;
 }
 .rightlink::before{
   position: absolute;
@@ -82,11 +87,14 @@ li{
   color: white;
   padding: 0 3em;
 }
-
+.split{
+  min-height: 60vh;
+}
 .right h2{
   font-size: 4em;
   font-weight: bold;
-  margin: .2em 0;
+  padding: .2em 0;
+  margin: 0;
 }
 .right p{
   width: 80%;
@@ -144,18 +152,37 @@ li{
 .itemDiv:hover::after{
   transform: translateY(0);
 }
+
 @media screen and (min-width: 1300px) {
   .right{
-    position: absolute;
     width: 50vw;
-    right: 0;
   }
+  
   #left{
     display: block;
     width: 50vw;
-    position: absolute;
+  }
+  .split{
+    display: flex;
+  }
+  ul{
+    flex-direction: row;
+  }
+  #projects{
+    margin-left: auto;
+  }
+  #contact{
+    margin-right: 3em;
+  }
+  .rightlink{
+    display: block;
+    margin: 0 1em;
+  }
+  #hamburger{
+    display: none;
   }
 }
+
 .row{
   position: relative;
   transform: rotate(15deg) translateX(-100%);
@@ -168,7 +195,9 @@ li{
   align-items: center;
   justify-content: space-between;
   transition: all 0.5s ease-in-out;
+
 }
+
 .row:first-of-type{
   margin-top: 5em;
 }
