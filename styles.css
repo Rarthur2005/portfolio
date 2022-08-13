@@ -6,7 +6,7 @@ body,html{
   height: 100%;
   font-family: 'montserrat', sans-serif;
   width: 100%;
-  overflow: hidden;
+  overflowX: hidden;
 }
 *{
   box-sizing: border-box;
@@ -32,7 +32,6 @@ li{
   color: #EF8354;
 }
 #triangle{
-  margin-left: .2em;
   height: 1em;
   width: 1em;
   background: #EF8354;
@@ -146,7 +145,7 @@ li{
   transform: translateY(100vh);
   position: absolute;
   transition: transform 0.3s ease-in-out;
-  border: .2em solid white;
+  border: .5rem solid white;
 }
 .itemDiv:hover::after{
   transform: translateY(0);
@@ -188,6 +187,12 @@ li{
   }
   #hamburger{
     display: none;
+  }
+  .itemDiv::after{
+    border: 5px solid white;
+  }
+  #triangle{
+    margin:0  .4em;
   }
 }
 
